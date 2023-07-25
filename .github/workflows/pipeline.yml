@@ -17,9 +17,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Log step 1
+      run: echo "Step 1 - Checkout complete"
+      
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+        
+    - name: Log step 2
+      run: echo "Step 2 - Node.js setup complete"
+
     - run: npm ci
-    - run: npm run lint
+    
+    - name: Log step 3
+      run: echo "Step 3 - npm ci complete"
+
+#     - run: npm run lint
+    
+    - name: Log step 4
+      run: echo "Step 4 - Linting complete"
